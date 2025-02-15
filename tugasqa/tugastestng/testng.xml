@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Annotation Execution Suite" parallel="methods" thread-count="3"> //berapa test yang dilakukan bersamaan
+    <test name="MyTestGroup">
+    <parameter name="program" value="bootcamp API Automation"/>
+        <classes>
+            <class name="PararelTestNG"/>
+        </classes>
+    </test>
+</suite>
