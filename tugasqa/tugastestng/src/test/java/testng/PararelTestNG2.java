@@ -1,15 +1,13 @@
+package testng;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import example.StaticProvider;
 
 
-public class testng {
+public class PararelTestNG2 {
 
     String name = "AfterOffice12";
 
@@ -33,51 +31,46 @@ public class testng {
          */
     }
 
-    @BeforeMethod
-    public void setUp() {
-    System.out.println("before method");
-    }
-
     @Test
     public void scenariotest1() {
         Assert.assertEquals(name, "AfterOffice12");
         System.out.println("scenario 1");
+        System.out.println(Thread.currentThread().getId());
     }
 
+    
     @Test
     public void scenariotest2() {
         Assert.assertEquals(name, "AfterOffice12");
         System.out.println("scenario 2");
+        System.out.println(Thread.currentThread().getId());
     }
 
     @Test
     public void scenariotest3() {
         Assert.assertEquals(name, "AfterOffice12");
         System.out.println("scenario 3");
+        System.out.println(Thread.currentThread().getId());
+    }
+
+    @Test
+    public void scenariotest4() {
+        Assert.assertEquals(name, "AfterOffice12");
+        System.out.println("scenario 4");
+        System.out.println(Thread.currentThread().getId());
+    }
+
+    @Test
+    public void scenariotest5() {
+        Assert.assertEquals(name, "AfterOffice12");
+        System.out.println("scenario 5");
+        System.out.println(Thread.currentThread().getId());
     }
 
     @Test(dataProvider = "dataproviderPositive", dataProviderClass = StaticProvider.class)
     public void dataTestScenario(String name, int age) {
         System.out.println("nama : " + name + " umur : " + age);
-    }
 
-    @AfterMethod
-    public void afterUp() {
-        System.out.println("after method");
     }
-
-    @AfterClass
-    public void setUpAfterClass () {
-        System.out.println("ini untuk setup after class");
-    }
-
-    // @DataProvider(name ="dataprovider")
-    // public Object[][] dataTest() {
-    //     return new Object[][]{
-    //         {"Rudy",10}, //nama sama umur
-    //         {"Sari",20}, //gunanya buat hit API atau pake data test yang banyak jadi gausa looping 
-    //         {"Budi",25}
-    //     };
-    // }
 
 }
