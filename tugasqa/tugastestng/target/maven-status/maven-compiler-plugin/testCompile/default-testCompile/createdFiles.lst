@@ -1,2 +1,4 @@
-testng.class
-PararelTestNG.class
+testng\testng.class
+example\StaticProvider.class
+testng\PararelTestNG2.class
+testng\PararelTestNG.class

@@ -1,9 +1,13 @@
+package testng;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import example.StaticProvider;
 
 
 public class testng {
@@ -53,6 +57,11 @@ public class testng {
         System.out.println("scenario 3");
     }
 
+    @Test(dataProvider = "dataproviderPositive", dataProviderClass = StaticProvider.class)
+    public void dataTestScenario(String name, int age) {
+        System.out.println("nama : " + name + " umur : " + age);
+    }
+
     @AfterMethod
     public void afterUp() {
         System.out.println("after method");
@@ -62,4 +71,14 @@ public class testng {
     public void setUpAfterClass () {
         System.out.println("ini untuk setup after class");
     }
+
+    // @DataProvider(name ="dataprovider")
+    // public Object[][] dataTest() {
+    //     return new Object[][]{
+    //         {"Rudy",10}, //nama sama umur
+    //         {"Sari",20}, //gunanya buat hit API atau pake data test yang banyak jadi gausa looping 
+    //         {"Budi",25}
+    //     };
+    // }
+
 }
